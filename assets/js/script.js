@@ -9,11 +9,12 @@ function capitalizeWords(str) {
   let result = str
     .trim()
     .split(" ")
+    .filter(function (word) {
+      return word.length > 0;
+    })
     .map(function (word) {
       return word[0].toUpperCase() + word.slice(1).toLowerCase();
     })
-    // Або так
-    // .map((word) => word[0].toUpperCase() + word.slice(1).toLowerCase)
     .join(" ");
 
   return result;
@@ -54,8 +55,6 @@ function countCustomVowels(str, vowelsArr) {
   const vowelsToLowerCase = vowelsArr.map(function (vowel) {
     return vowel.toLowerCase();
   });
-  // Або так
-  //vowelsArr.map(vowel => vowel.toLowerCase());
 
   let count = 0;
 
@@ -66,3 +65,9 @@ function countCustomVowels(str, vowelsArr) {
   }
   return count;
 }
+
+
+const str = "sdfa sdfa   asdfa    asdf ";
+const str2 = str.trim().split(" ").filter(e => e.length > 0) ;
+
+console.log(str2);
